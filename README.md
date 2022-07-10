@@ -1,5 +1,5 @@
 ![](img/repstaico.png)
-#repsta is an open-source tool for gathering statistics about a repository.
+# repsta is an open-source tool for gathering statistics about a repository.
 ## Installation
   ### 1. Clone source code
 ```sh

@@ -50,7 +50,7 @@ $(PRF_OBJ)%.o : $(PRF_SRC)%.cpp
 
 # clean object and binary files
 clean :
-	rm -rf $(PREF_OBJ)*.o $(TARGET)
+	rm -rf $(PRF_OBJ)*.o $(TARGET)
 
 # install on system unix
 install :

@@ -4,6 +4,7 @@
 int 
 main()
 {
-  fmt::print(stdout, "Hello, world!");
+  //std::cout << "Hi\n";
+  fmt::print(stdout, "Hello, fmt!");
   return EXIT_SUCCESS;
 }

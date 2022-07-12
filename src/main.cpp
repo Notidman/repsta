@@ -10,8 +10,7 @@
  */
 
 int 
-main(int argc, char *argv[])
-{
+main(int argc, char *argv[]) {
   auto repsta{std::make_unique<reps::Repsta>(argc, argv)};
   return EXIT_SUCCESS;
 }

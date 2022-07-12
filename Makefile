@@ -31,7 +31,7 @@ SRC=$(wildcard $(PRF_SRC)*.cpp)
 OBJ=$(patsubst $(PRF_SRC)%.cpp, $(PRF_OBJ)%.o, $(SRC))
 
 # all targets
-.PHONY : all release debug clear install uninstall
+.PHONY : all release debug clear install uninstall docs
 
 # default make
 all : release
@@ -45,7 +45,7 @@ release : $(OBJ)
 	$(CC) $(CXXRFLAGS) $(OBJ) ${LIBINCLUDE} ${LDLIBS} -o $(TARGET)
 
 # generate doc
-doxygen :
+docs :
 	doxygen Doxyfile
 
 # generate .o files

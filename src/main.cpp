@@ -1,10 +1,17 @@
-#include <iostream>
-#include <fmt/core.h>
-// cch
+#include <cstdlib>
+#include "repsta.hpp"
+
+/*!
+ * \brief The main function creates the Repsta class for the program to work.
+ * \authors notidman
+ * \version 0.1
+ * \date 11-07-22
+ * \copyright GNU General Public License v3.0
+ */
+
 int 
-main()
+main(int argc, char *argv[])
 {
-  //std::cout << "Hi\n";
-  fmt::print(stdout, "Hello, fmt!");
+  auto repsta{std::make_unique<reps::Repsta>(argc, argv)};
   return EXIT_SUCCESS;
 }

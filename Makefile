@@ -23,8 +23,8 @@ PRF_SRC=./src/
 PRF_OBJ=./obj/
 
 # libs
-LDLIBS=-lfmt
-LIBINCLUDE=/usr/lib64/libfmt.so
+LDLIBS=-lfmt -lboost_program_options
+LIBINCLUDE=/usr/lib64/libfmt.so /usr/lib64/libboost_program_options.so
 
 # list source files
 SRC=$(wildcard $(PRF_SRC)*.cpp)
@@ -38,11 +38,15 @@ all : release
 
 # target program debug
 debug : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) ${LIBINCLUDE} -o $(TARGET)
+	$(CC) $(CFLAGS) $(OBJ) ${LIBINCLUDE} ${LDLIBS} -o $(TARGET)
 
 # target program release
 release : $(OBJ)
-	$(CC) $(CXXRFLAGS) $(OBJ) ${LIBINCLUDE} -o $(TARGET)
+	$(CC) $(CXXRFLAGS) $(OBJ) ${LIBINCLUDE} ${LDLIBS} -o $(TARGET)
+
+# generate doc
+doxygen :
+	doxygen Doxyfile
 
 # generate .o files
 $(PRF_OBJ)%.o : $(PRF_SRC)%.cpp
@@ -50,7 +54,7 @@ $(PRF_OBJ)%.o : $(PRF_SRC)%.cpp
 
 # clean object and binary files
 clean :
-	rm -rf $(PRF_OBJ)*.o $(TARGET)
+	rm -rf $(PRF_OBJ)*.o $(TARGET) doc/*
 
 # install on system unix
 install :

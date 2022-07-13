@@ -1,9 +1,11 @@
 #include "repsta.hpp"
+#include "env.hpp"
 
 #include <boost/program_options.hpp>
 #include <boost/program_options/options_description.hpp>
 #include <boost/program_options/parsers.hpp>
 #include <boost/program_options/variables_map.hpp>
+#include <cstdio>
 #include <exception>
 #include <fmt/core.h>
 #include <fmt/color.h>
@@ -20,8 +22,8 @@ namespace reps {
       desc.add_options()
         ("help,h", "produce help message.")
         ("version,v", "produce version message.")
-        ("collection,c", "displays information about the repository.")
-        ("logfile,l", po::value<std::string>() , "saves a log file on the system.");
+        ("detailed,d", "displays very detailed information.")
+        ("logfile,l", po::value<std::string>() , "saves a log file on the system. add the path after = where you want to save.");
 
       // I get the necessary keys from the user options
       po::variables_map vm;
@@ -30,15 +32,22 @@ namespace reps {
       
       // Display help
       if ( vm.count("help") ) {
-        /* std::cout << desc; */
-        fmt::print("\nTool for gathering statistics about a repository.\
-          \n\nUSAGE:\n\n\trepsta [OPTIONS] [SUBCOMMAND]\n\n");
+        fmt::print("\nAuthors: {authors}\nVersion: {version}\nBrief: {brief}\n\nUSAGE:\n\n\t{description}\n\n",
+            fmt::arg("authors",env::program_authors),
+            fmt::arg("version", env::program_verison),
+            fmt::arg("brief", env::program_brief),
+            fmt::arg("description", "repsta [OPTIONS] [SUBCOMMAND]"));
         std::cout << desc;
         exit(1);
       }
       // Collect info repository
-      else if ( vm.count("collection") ) {
+      else if ( vm.count("detailed") ) {
         fmt::print("Very interesting information.");
+      }
+      else if ( vm.count("version") ) {
+        fmt::print("{}: {}",
+            fmt::format(fg(fmt::color::green_yellow), "version"),
+            fmt::format(fg(fmt::color::crimson), env::program_verison));
       }
       else if ( vm.count("logfile") ) {
         fmt::print("Log save here: \"{}\".", vm["logfile"].as<std::string>());
@@ -52,8 +61,9 @@ namespace reps {
     }
     catch(std::exception const&e) {
       /// Display error
-      fmt::print(stderr, fmt::emphasis::bold | fg(fmt::color::red),"error");
-      fmt::print(stderr, ": {}.\nTry 'repsta --help' for more information.", e.what());
+      fmt::print(stderr, "{}: {}.\nTry 'repsta --help' for more information.",
+          fmt::format(fmt::emphasis::bold | fg(fmt::color::red),"error"),
+          e.what());
       exit(1);
     }
   }

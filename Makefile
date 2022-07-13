@@ -34,7 +34,7 @@ OBJ=$(patsubst $(PRF_SRC)%.cpp, $(PRF_OBJ)%.o, $(SRC))
 .PHONY : all release debug clear install uninstall docs
 
 # default make
-all : release
+all : debug
 
 # target program debug
 debug : $(OBJ)
@@ -50,7 +50,7 @@ docs :
 
 # generate .o files
 $(PRF_OBJ)%.o : $(PRF_SRC)%.cpp
-	$(CC) -c $(CFLAGS) $< -o $@
+	$(CC) -c $(CXXFLAGS) $< -o $@
 
 # clean object and binary files
 clean :

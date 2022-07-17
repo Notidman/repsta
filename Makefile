@@ -38,11 +38,11 @@ all : debug
 
 # target program debug
 debug : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) ${LIBINCLUDE} ${LDLIBS} -o $(TARGET)
+	$(CC) $(CXXFLAGS) $(OBJ) $(LIBINCLUDE) $(LDLIBS) -o $(TARGET)
 
 # target program release
 release : $(OBJ)
-	$(CC) $(CXXRFLAGS) $(OBJ) ${LIBINCLUDE} ${LDLIBS} -o $(TARGET)
+	$(CC) $(CXXRFLAGS) $(OBJ) $(LIBINCLUDE) $(LDLIBS) -o $(TARGET)
 
 # generate doc
 docs :

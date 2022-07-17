@@ -23,8 +23,8 @@ PRF_SRC=./src/
 PRF_OBJ=./obj/
 
 # libs
-LDLIBS=-lfmt -lboost_program_options
-LIBINCLUDE=/usr/lib64/libfmt.so /usr/lib64/libboost_program_options.so
+LDLIBS=-lfmt -lboost_program_options -lncurses
+LIBINCLUDE=/usr/lib64/libfmt.so /usr/lib64/libboost_program_options.so /usr/lib64/libncurses.so
 
 # list source files
 SRC=$(wildcard $(PRF_SRC)*.cpp)

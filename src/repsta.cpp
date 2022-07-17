@@ -18,11 +18,13 @@ namespace reps {
 
     try {
       // create program option keys
-      po::options_description desc("OPTIONS");
+      po::options_description desc("Options");
       desc.add_options()
         ("help,h", "produce help message.")
         ("version,v", "produce version message.")
-        ("detailed,d", "displays very detailed information.")
+        ("date,d", "displays the creation date of the repository.")
+        ("creator,c", "displays the creator of the repository.")
+        ("fast,f", "displays brief information about the repository without tui.")
         ("logfile,l", po::value<std::string>() , "saves a log file on the system. add the path after = where you want to save.");
 
       // I get the necessary keys from the user options
@@ -32,22 +34,31 @@ namespace reps {
       
       // Display help
       if ( vm.count("help") ) {
-        fmt::print("\nAuthors: {authors}\nVersion: {version}\nBrief: {brief}\n\nUSAGE:\n\n\t{description}\n\n",
+        fmt::print("\nAuthors: {authors}\nVersion: {version}\nBrief discription: {brief}\n\nUsage:\n\t{usage}\n\n",
             fmt::arg("authors",env::program_authors),
             fmt::arg("version", env::program_verison),
             fmt::arg("brief", env::program_brief),
-            fmt::arg("description", "repsta [OPTIONS] [SUBCOMMAND]"));
+            fmt::arg("usage", "repsta [OPTIONS] [SUBCOMMAND]"));
         std::cout << desc;
         exit(1);
       }
-      // Collect info repository
-      else if ( vm.count("detailed") ) {
-        fmt::print("Very interesting information.");
-      }
+      // Display verison
       else if ( vm.count("version") ) {
         fmt::print("{}: {}",
             fmt::format(fg(fmt::color::green_yellow), "version"),
             fmt::format(fg(fmt::color::crimson), env::program_verison));
+      }
+      // Display creation date
+      else if ( vm.count("date") ) {
+        fmt::print("12/12/12 23:23:23.");
+      }
+      // Display creator
+      else if ( vm.count("creator") ) {
+        fmt::print("It's a me! Luigi.");
+      }
+      // Display brief information
+      else if ( vm.count("fast") ) {
+        fmt::print("GOTTA GO FAST");
       }
       else if ( vm.count("logfile") ) {
         fmt::print("Log save here: \"{}\".", vm["logfile"].as<std::string>());

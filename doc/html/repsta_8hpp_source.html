@@ -77,21 +77,21 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;statisticscollector.hpp&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>reps </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classreps_1_1_repsta.html">   11</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classreps_1_1_repsta.html">Repsta</a> final {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;      std::unique_ptr&lt;StatisticsCollector&gt; m_collector; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;      <a class="code" href="classreps_1_1_repsta.html#ad7486ee18e4ed34590290009434eb9c0">Repsta</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      <a class="code" href="classreps_1_1_repsta.html#ad7486ee18e4ed34590290009434eb9c0">Repsta</a>(<a class="code" href="classreps_1_1_repsta.html">Repsta</a> &amp;&amp;repsta) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      <a class="code" href="classreps_1_1_repsta.html">Repsta</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classreps_1_1_repsta.html">Repsta</a> &amp;repsta) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>reps {</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classreps_1_1_repsta.html">   10</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classreps_1_1_repsta.html">Repsta</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;      std::unique_ptr&lt;StatisticsCollector&gt; m_collector; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      <a class="code" href="classreps_1_1_repsta.html#ad7486ee18e4ed34590290009434eb9c0">Repsta</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      <a class="code" href="classreps_1_1_repsta.html#ad7486ee18e4ed34590290009434eb9c0">Repsta</a>(<a class="code" href="classreps_1_1_repsta.html">Repsta</a> &amp;&amp;repsta) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      <a class="code" href="classreps_1_1_repsta.html#ad7486ee18e4ed34590290009434eb9c0">Repsta</a>(<a class="code" href="classreps_1_1_repsta.html">Repsta</a> <span class="keyword">const</span>&amp;repsta) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      <a class="code" href="classreps_1_1_repsta.html">Repsta</a>&amp; operator=(<a class="code" href="classreps_1_1_repsta.html">Repsta</a> <span class="keyword">const</span>&amp;repsta) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      <a class="code" href="classreps_1_1_repsta.html">Repsta</a>&amp; operator=(<a class="code" href="classreps_1_1_repsta.html">Repsta</a> &amp;&amp;repsta) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  };</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
-<div class="ttc" id="aclassreps_1_1_repsta_html"><div class="ttname"><a href="classreps_1_1_repsta.html">reps::Repsta</a></div><div class="ttdoc">Repsta is the main class of the program for its work.</div><div class="ttdef"><b>Definition:</b> repsta.hpp:11</div></div>
-<div class="ttc" id="aclassreps_1_1_repsta_html_ad7486ee18e4ed34590290009434eb9c0"><div class="ttname"><a href="classreps_1_1_repsta.html#ad7486ee18e4ed34590290009434eb9c0">reps::Repsta::Repsta</a></div><div class="ttdeci">Repsta(int argc, char *argv[])</div><div class="ttdoc">A class that collects statistics for display from the repository.</div><div class="ttdef"><b>Definition:</b> repsta.cpp:14</div></div>
+<div class="ttc" id="aclassreps_1_1_repsta_html"><div class="ttname"><a href="classreps_1_1_repsta.html">reps::Repsta</a></div><div class="ttdoc">Repsta is the main class of the program for its work.</div><div class="ttdef"><b>Definition:</b> repsta.hpp:10</div></div>
+<div class="ttc" id="aclassreps_1_1_repsta_html_ad7486ee18e4ed34590290009434eb9c0"><div class="ttname"><a href="classreps_1_1_repsta.html#ad7486ee18e4ed34590290009434eb9c0">reps::Repsta::Repsta</a></div><div class="ttdeci">Repsta(int argc, char *argv[])</div><div class="ttdoc">A class that collects statistics for display from the repository.</div><div class="ttdef"><b>Definition:</b> repsta.cpp:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
